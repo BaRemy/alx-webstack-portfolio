@@ -27,8 +27,12 @@
             <audio id="song">
                 <source src="media/slow-motion.mp3" type="">
             </audio>
-            <input type="range" value="0" id="progress">
-
+            <div class="progress-volume-container">
+                <input type="range" value="0" id="progress">
+                <i id="volumeIcon" class="fa-solid fa-volume-high"></i> <!-- Volume icon -->
+                <input type="range" id="volumeControl" min="0" max="1" step="0.01" value="1">
+            </div>            
+            
             <div class="controls">
                 <div><i class="fa-solid fa-backward"></i></div>
                 <div onclick="playPause()"><i class="fa-solid fa-play" id="ctrlIcon"></i></div>
