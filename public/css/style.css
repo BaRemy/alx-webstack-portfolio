@@ -134,15 +134,6 @@ nav .circle{
     margin: 20rem 0;
 }
 
-#volumeControl {
-    -webkit-appearance: none;
-    width: 20%;
-    height: 6px;
-    background-color: #31a415;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
 #volumeControl::-webkit-slider-thumb {
     -webkit-appearance: none;
     background-color: #2e07dc;
