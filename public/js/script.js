@@ -32,3 +32,8 @@ let progress = document.getElementById('progress');
             ctrlIcon.classList.add("fa-pause");
             ctrlIcon.classList.remove("fa-play");
         }
+        let volumeControl = document.getElementById('volumeControl');
+
+        volumeControl.oninput = function() {
+            song.volume = volumeControl.value;
+        }
