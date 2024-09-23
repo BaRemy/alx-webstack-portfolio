@@ -3,6 +3,7 @@ let ctrlIcon = document.getElementById('ctrlIcon');
 let progress = document.getElementById('progress');
 let volumeControl = document.getElementById('volumeControl');
 let volumeIcon = document.getElementById('volumeIcon');
+let searchInput = document.getElementById('searchInput');
 
 const playlist = [
     { title: "Slow Motion", artist: "Yuhi Mic", src: "media/slow-motion.mp3", img: "media/music-bg.jpg" },
@@ -23,6 +24,47 @@ function loadSong(index) {
     document.querySelector(".song-img").src = currentSong.img;
     song.load();
 }
+
+// Search function
+function filterPlaylist(query) {
+    console.log("Searching for:", query); // Debugging log
+    const filteredSongs = playlist.filter(song =>
+        song.title.toLowerCase().includes(query) ||
+        song.artist.toLowerCase().includes(query)
+    );
+    console.log("Filtered Songs:", filteredSongs); // Debugging log
+    displayPlaylist(filteredSongs);
+}
+
+// Display the filtered playlist
+function displayPlaylist(songs) {
+    const songListContainer = document.getElementById('songList');
+    songListContainer.innerHTML = ''; // Clear previous results
+
+    songs.forEach((song, index) => {
+        const songDiv = document.createElement('div');
+        songDiv.textContent = `${song.title} - ${song.artist}`;
+        songDiv.className = 'song-item';
+        songDiv.onclick = () => {
+            currentIndex = playlist.indexOf(song); // Update to get the correct index
+            loadSong(currentIndex);
+            song.play();
+            ctrlIcon.classList.remove("fa-play");
+            ctrlIcon.classList.add("fa-pause");
+        };
+        songListContainer.appendChild(songDiv);
+    });
+
+    if (songs.length === 0) {
+        songListContainer.innerHTML = "<p>No songs found.</p>"; // Display message if no results
+    }
+}
+
+// Event listener for the search input
+searchInput.addEventListener('input', function() {
+    const query = this.value.toLowerCase();
+    filterPlaylist(query);
+});
 
 function playPause() {
     if (ctrlIcon.classList.contains("fa-play")) {
