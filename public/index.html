@@ -18,24 +18,24 @@
                     </div>
                 </a>
                 <div class="search">
-                    <input type="text" placeholder="What do you want to play?">
+                    <input type="text" id="searchInput" placeholder="What do you want to play?">
                 </div>
                 <div class="circle">
                     <i class="fa-solid fa-bars"></i>
                 </div>
             </nav>
+            <div id="songList"></div>
             <img src="media/music-bg.jpg" alt="Music Background Image" class="song-img">
             <h1>Slow Motion</h1>
             <p>Yuhi Mic</p>
             <audio id="song">
-                <source src="media/slow-motion.mp3" type="">
+                <source src="media/slow-motion.mp3" type="audio/mpeg">
             </audio>
             <div class="progress-volume-container">
                 <input type="range" value="0" id="progress">
-                <i id="volumeIcon" class="fa-solid fa-volume-high"></i> <!-- Volume icon -->
+                <i id="volumeIcon" class="fa-solid fa-volume-high"></i>
                 <input type="range" id="volumeControl" min="0" max="1" step="0.01" value="1">
             </div>            
-            
             <div class="controls">
                 <div onclick="skipBackward()"><i class="fa-solid fa-backward"></i></div>
                 <div onclick="playPause()"><i class="fa-solid fa-play" id="ctrlIcon"></i></div>
