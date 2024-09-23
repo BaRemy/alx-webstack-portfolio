@@ -35,6 +35,12 @@ p {
     color: #fff;
 }
 
+marquee {
+    font-size: 1.2rem;
+    margin-top: 40px;
+    color: #fff;
+}
+
 button {
     padding: 15px 30px;
     font-size: 1.2rem;
